@@ -9,7 +9,7 @@ runs:
   steps:
     - uses: actions/checkout@v4
     - name: Download Validator
-      run: curl --fail -v -L https://api.github.com/repos/CodeYourFuture/trainee-tracker/releases/latest | jq '.assets[] | select(.name | startswith("pr-metadata-validator-musl-")).browser_download_url' | xargs curl --fail -v -L -o /tmp/pr-metadata-validator && chmod 0755 /tmp/pr-metadata-validator
+      run: curl --fail -L https://api.github.com/repos/CodeYourFuture/trainee-tracker/releases/latest | jq '.assets[] | select(.name | startswith("pr-metadata-validator-musl-")).browser_download_url' | xargs curl --fail -L -o /tmp/pr-metadata-validator && chmod 0755 /tmp/pr-metadata-validator
       shell: bash
     - name: Validate PR Metadata
       run: /tmp/pr-metadata-validator ${{ github.event.pull_request.html_url }}
