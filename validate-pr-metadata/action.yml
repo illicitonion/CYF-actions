@@ -2,9 +2,8 @@ name: "Validate PR Metadata"
 description: "Validates CodeYourFuture trainee pull request metadata"
 inputs:
   GITHUB_TOKEN:
-    description: GitHub Token to use, probably literally ${{ secrets.GITHUB_TOKEN }}
-    # required: true
-    default: ${{ secrets.GITHUB_TOKEN }}
+    description: GitHub Token to use, probably secrets.GITHUB_TOKEN
+    required: true
 runs:
   steps:
     - uses: actions/checkout@v4
