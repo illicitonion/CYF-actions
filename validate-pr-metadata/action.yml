@@ -15,4 +15,4 @@ runs:
       run: /tmp/pr-metadata-validator ${{ github.event.pull_request.html_url }}
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
